@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val myGApiKey = "AIzaSyC7KXPQfRuR-s9wwZ5m409O_xjsdfQzkXc";
-        val myWApiKey = "f39b493a5b2376f0fd5beda26b8acc6b";
         var PlaceName: String
         var PlaceId: String
 
@@ -121,12 +120,9 @@ class MainActivity : AppCompatActivity() {
                 val timezone = jsonObj.getInt("timezone")
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
 
-                val updatedAt: Long = jsonObj.getLong("dt")
-                val updatedAtText = "Updated at: " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt * 1000))
                 val temp = main.getString("temp") + "°C"
                 val tempMin =  main.getString("temp_min") + "°C"+"\nMin Temp"
                 val tempMax = main.getString("temp_max") + "°C" + "\nMax Temp"
-                val pressure = main.getString("pressure") + " mm Hg"
                 val humidity = main.getString("humidity") + "°\nhumidity"
 
                 val sunrise: Long = sys.getLong("sunrise")
